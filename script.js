@@ -9,18 +9,16 @@ console.log("hour8".split("hour"));
 $(document).ready(function () {
   function time_tracker() {
     var time_now = moment().hour();
-    console.log(time_now);
 
     $(".time-block").each(function () {
-      console.log($(this).attr("id"));
-      var day_time = parseInt($(this).attr("id").split("-")[1]);
-      console.log(day_time);
+      var day_time = parseInt($(this).attr("id"));
 
       if (day_time < time_now) {
         $(this).removeClass("future");
         $(this).removeClass("present");
         $(this).addClass("past");
-      } else if (day_time === timeNow) {
+        var id = $(this).attr("id");
+      } else if (day_time === time_now) {
         $(this).removeClass("past");
         $(this).removeClass("future");
         $(this).addClass("present");
@@ -31,6 +29,24 @@ $(document).ready(function () {
       }
     });
   }
+
+  $(".saveBtn").on("click", function () {
+    var text = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+
+    // Save text in local storage
+    localStorage.setItem(time, text);
+  });
+
+  $("#9 .description").val(localStorage.getItem("9"));
+  $("#10 .description").val(localStorage.getItem("10"));
+  $("#11 .description").val(localStorage.getItem("11"));
+  $("#12 .description").val(localStorage.getItem("12"));
+  $("#13 .description").val(localStorage.getItem("13"));
+  $("#14 .description").val(localStorage.getItem("14"));
+  $("#15 .description").val(localStorage.getItem("15"));
+  $("#16 .description").val(localStorage.getItem("16"));
+  $("#17 .description").val(localStorage.getItem("17"));
 
   time_tracker();
 });
