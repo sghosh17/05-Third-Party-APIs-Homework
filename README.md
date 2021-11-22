@@ -20,4 +20,4 @@ This is a simple calendar application that allows a user to save events for each
 
 ### Link to the deployed application
 
-Click [here](https://sghosh17.github.io/04-Web-API-Homework/) to access the application.
+Click [here](https://sghosh17.github.io/05-Third-Party-APIs-Homework/) to access the application.
